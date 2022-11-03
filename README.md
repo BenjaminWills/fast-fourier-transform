@@ -15,3 +15,21 @@ To describe a circular path we need 3 bits of information:
 - Frequency (revolutions per time interval)
 - Amplitude (radius of circle)
 - Phase angle (starting point)
+
+If we think of the wave traced by a point moving around a circle in time we have a sinusoidal wave, this is how sine and cosine waves are defined.
+
+Fourier had the idea of placing multiple points with different frequencies, amplitudes and phase angles together around the same center.
+
+So how might we go from a function to a sum of sinusoidal waves?
+
+### Fourier Series
+
+A fourier series with a period of $T$ and thus a frequency of $f=\frac{1}{T}$ is given by:
+
+$$
+\begin{align}
+f(t) = \sum^{\infty}_{m = 0}{a_m \cos{(\frac{2 \pi m t}{T})}} + \sum^{\infty}_{n = 0}{b_n \sin{(\frac{2 \pi m t}{T})}}
+\end{align}
+$$
+
+where $a_m,b_n$ are the `coefficients` of the fourier series, that determine relative weights for each wave (i.e the amount that each frequency contributes!)
