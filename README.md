@@ -77,3 +77,15 @@ $$
 \end{gather*}
 \end{align*}
 $$
+
+You may be thinking... Why do I need to know this? To answer that we must dive into the `inner product`. This is an idea from linear algebra that essentially finds the similarity between two things in a `vector space`. You may be familiar with the `dot product` for vectors, well that is an example of an inner prodcut. The space of continuously differentiable functions is also a vector space, thus has an inner product defined on it.
+
+The inner product over the interval $[a,b]$ is defined as follows:
+
+$$
+\begin{align*}
+\langle f,g\rangle = \int^{b}_{a}{f(x)g(x)dx}
+\end{align*}
+$$
+
+Two functions are `orthogonal` IF $\langle f,g\rangle = 0$.
