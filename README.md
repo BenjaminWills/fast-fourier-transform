@@ -103,3 +103,11 @@ b_k = \frac{1}{L} \int^{L}_{-L}{f(t)sin(\frac{k \pi t}{L})}dt
 $$
 
 So lets just summarise, the `inner product` finds how similar two functions are - and hence is perfect to find the frequencies that our function is made of, we then used this to find an expansion of our function in terms of sinusoudal waves.
+
+We can find everything at once by calculating
+
+$$
+\begin{align}
+a_k + ib_k = \frac{1}{L} \int^{L}_{-L}{f(t)e^{i\frac{k \pi t}{L}}}dt
+\end{align}
+$$
