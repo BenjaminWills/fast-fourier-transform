@@ -38,46 +38,6 @@ The challenge now becomes how can we find these co-efficients?
 
 Well, a **very** important fact is that sinusoidal waves multiplied together with non equal frequencies effectively cancel out, one could view this as the 'exactness' of the match.
 
-$case \ 1: n \neq m$
-
-$$
-\begin{align*}
-\begin{gather*}
-\int{sin(mt)sin(nt)}dt =\frac{1}{2} \int{cos(t(n-m)) - cos(t(n+m))}dt \\
-= \frac{sin(t(n-m))}{2(n-m)} - \frac{sin(t(n+m))}{2(n+m)} + C
-\end{gather*}
-\end{align*}
-$$
-
-$$
-\begin{align*}
-\begin{gather*}
-\int{cos(mt)cos(nt)}dt =\frac{1}{2} \int{cos(t(n-m)) + cos(t(n+m))}dt \\
-= \frac{sin(t(n-m))}{2(n-m)} + \frac{sin(t(n+m))}{2(n+m)} + C
-\end{gather*}
-\end{align*}
-$$
-
-$case \ 2: n = m$
-
-$$
-\begin{align*}
-\begin{gather*}
-\int{sin^2{(nt)}}dt =\frac{1}{2} \int{1-cos{(2nt)}}dt \\
-=\frac{t}{2} -\frac{1}{4n}sin(2nt)
-\end{gather*}
-\end{align*}
-$$
-
-$$
-\begin{align*}
-\begin{gather*}
-\int{cos^2{(nt)}}dt =\frac{1}{2} \int{cos{(2nt)+1}}dt \\
-= \frac{1}{4n}sin(2nt) + \frac{t}{2}
-\end{gather*}
-\end{align*}
-$$
-
 You may be thinking... Why do I need to know this? To answer that we must dive into the `inner product`. This is an idea from linear algebra that essentially finds the similarity between two things in a `vector space`. You may be familiar with the `dot product` for vectors, well that is an example of an inner prodcut. The space of continuously differentiable functions is also a vector space, thus has an inner product defined on it.
 
 The inner product over the interval $[a,b]$ is defined as follows:
@@ -88,4 +48,8 @@ $$
 \end{align*}
 $$
 
-Two functions are `orthogonal` IF $\langle f,g\rangle = 0$.
+Two functions are `orthogonal` (aka completely dissimilar or perpendicular)IF $\langle f,g\rangle = 0$. So finally linking back to $f(t)$ defined above we can take the
+
+A function $f(x)$ is `normalised` if $\langle f,f\rangle=1$, which can be easily achieved if we just write $\hat{f}(x) = \frac{f(x)}{\sqrt{\langle f,f\rangle}}$ then $\langle \hat{f},\hat{f}\rangle=\frac{\langle f,f\rangle}{\langle f,f\rangle} = 1$ for any function.
+
+It is a fact that on the interval $[0,\pi]$
