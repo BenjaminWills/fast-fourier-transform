@@ -28,13 +28,13 @@ A fourier series with a period of $T$ and thus a frequency of $f=\frac{1}{T}$ is
 
 $$
 \begin{align}
-f(t) = \sum^{\infty}_{m = 0}{a_m \cos{(\frac{2 \pi m t}{T})}} + \sum^{\infty}_{n = 0}{b_n \sin{(\frac{2 \pi m t}{T})}}
+f(t) = \sum^{\infty}_{m = 0}{a_m \cos{(mt)}} + \sum^{\infty}_{n = 0}{b_n \sin{(nt)}}
 \end{align}
 $$
 
 where $a_m,b_n$ are the `coefficients` of the fourier series, that determine relative weights for each wave (i.e the amount that each frequency contributes!)
 
-The challenge now becomes how can we find these co-efficients?
+The challenge now becomes: how can we find these co-efficients?
 
 Well, a **very** important fact is that sinusoidal waves multiplied together with non equal frequencies effectively cancel out, one could view this as the 'exactness' of the match.
 
@@ -52,4 +52,4 @@ Two functions are `orthogonal` (aka completely dissimilar or perpendicular)IF $\
 
 A function $f(x)$ is `normalised` if $\langle f,f\rangle=1$, which can be easily achieved if we just write $\hat{f}(x) = \frac{f(x)}{\sqrt{\langle f,f\rangle}}$ then $\langle \hat{f},\hat{f}\rangle=\frac{\langle f,f\rangle}{\langle f,f\rangle} = 1$ for any function.
 
-It is a fact that on the interval $[0,\pi]$
+It is a fact that on the interval $[-\pi,\pi]$: $cos(x)$ and $sin(x)$ are `orthogonal`, thus we can find our coefficients, $a_n,b_n$ on this interval. Meaning that the set $\{sin(x), \dots,sin(nx),cos(x),\dots,cos(nx)\}$ forms an orthogonal basis (so everything is orthogonal to eachother pairwise in this set) on the set of functions (on the interval $[-\pi,\pi]$).
