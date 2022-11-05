@@ -24,7 +24,7 @@ So how might we go from a function to a sum of sinusoidal waves?
 
 ### Fourier Series
 
-A fourier series with a period of $T$ and thus a frequency of $f=\frac{1}{T}$ is given by:
+A fourier series with a period of $\pi$ and thus a frequency of $f=\frac{1}{\pi}$ on the interval $[-\pi,\pi]$ is given by:
 
 $$
 \begin{align}
@@ -54,4 +54,52 @@ A function $f(x)$ is `normalised` if $\langle f,f\rangle=1$, which can be easily
 
 It is a fact that on the interval $[-\pi,\pi]$: $cos(x)$ and $sin(x)$ are `orthogonal`, thus we can find our coefficients, $a_n,b_n$ on this interval. Meaning that the set $\{sin(x), \dots,sin(nx),cos(x),\dots,cos(nx)\}$ forms an orthogonal basis (so everything is orthogonal to eachother pairwise in this set) on the set of functions (on the interval $[-\pi,\pi]$). This basis is orthonormal if every element of the set is multiplied by $\frac{1}{\sqrt{\pi}}$, since then each inner product of a function with itself in the set equals one. So why is this important?
 
-NOTE: we can extend this interval of estimation to $[-L,L]$ by substituting $x$ for $x = \frac{\hat{x}\pi}{L}$ then $\forall \hat{x} \in [-L,L]$ the set $\{\frac{1}{\sqrt{L}}cos(\frac{nx \pi}{L}),\frac{1}{\sqrt{L}} sin(\frac{nx \pi}{L}): n \in \N \}$ forms an orthonormal basis on $[-L,L]$. You can check this as an exercise!
+NOTE: we can extend this interval of estimation to $[-L,L]$ by substituting $x$ for $x = \frac{\hat{x}\pi}{L}$ then $\forall \hat{x} \in [-L,L]$ the set $\{\frac{1}{\sqrt{L}}cos(\frac{n\hat{x} \pi}{L}),\frac{1}{\sqrt{L}} sin(\frac{n\hat{x} \pi}{L}): n \in \N \}$ forms an orthonormal basis on $[-L,L]$. You can check this as an exercise!
+
+So if we now define $f(t)$ on the interval $[-L,L]$ using this above note:
+
+$$
+\begin{align}
+f(t) = \sum^{\infty}_{m = 0}{a_m \cos{(\frac{m\pi t}{L})}} + \sum^{\infty}_{n = 0}{b_n \sin{(\frac{n\pi t}{L})}}
+\end{align}
+$$
+
+Lets finally use this orthonormal basis that we've found to find $a_n,b_m$, to do this we use our old friend: the inner product.
+
+$$
+\begin{align*}
+\langle f(t),\frac{1}{\sqrt{L}} cos(\frac{k \pi t}{L})\rangle =
+\langle \sum^{\infty}_{m = 0}{a_m \cos{(\frac{m\pi t}{L})}} + \sum^{\infty}_{n = 0}{b_n \sin{(\frac{n\pi t}{L})}},\frac{1}{\sqrt{L}} cos(\frac{k \pi t}{L})\rangle \\
+= \langle \sum^{\infty}_{m = 0}{a_m \cos{(\frac{m\pi t}{L})}},\frac{1}{\sqrt{L}} cos(\frac{k \pi t}{L})\rangle \\
+= \sum^{\infty}_{m = 0}\langle {a_m \cos{(\frac{m\pi t}{L})}},\frac{1}{\sqrt{L}} cos(\frac{k \pi t}{L})\rangle \\
+= \sum^{\infty}_{m = 0}\frac{a_m}{\sqrt{L}}\langle { \cos{(\frac{m\pi t}{L})}}, cos(\frac{k \pi t}{L})\rangle
+\\
+=\sqrt{L} \sum^{\infty}_{m = 0} \delta_{k,m}a_m = \sqrt{L}a_k
+\end{align*}
+$$
+
+Equivalently we have that (since we know $f(t)$ remember)
+
+$$
+\begin{align*}
+\langle f(t),\frac{1}{\sqrt{L}} cos(\frac{k \pi t}{L})\rangle =\frac{1}{\sqrt{L}} \int^{L}_{-L}{f(t)cos(\frac{k \pi t}{L})}dt
+\end{align*}
+$$
+
+Hence finally we have that
+
+$$
+\begin{align}
+a_k = \frac{1}{L} \int^{L}_{-L}{f(t)cos(\frac{k \pi t}{L})}dt
+\end{align}
+$$
+
+and by similar reasoning we have that
+
+$$
+\begin{align}
+b_k = \frac{1}{L} \int^{L}_{-L}{f(t)sin(\frac{k \pi t}{L})}dt
+\end{align}
+$$
+
+So lets just summarise, the `inner product` finds how similar two functions are - and hence is perfect to find the frequencies that our function is made of, we then used this to find an expansion of our function in terms of sinusoudal waves.
