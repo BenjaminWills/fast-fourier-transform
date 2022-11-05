@@ -2,9 +2,9 @@
 
 In this repository I will be exploring and implementing the fast fourier transform algorithm. First let us discuss what a `fourier transform` is.
 
-## Fourier Transforms
+## Fourier Analysis
 
-The idea of the `fourier transform` is that we should be able to decompose a wave into its individual components, it allows us to to find the frequencies and amplitudes that make up a function.
+The idea of the `fourier transform` is that we should be able to decompose a wave into its individual frequencies, it allows us to to find the frequencies and amplitudes that make up a function.
 
 The intuition is that any signal can be made from a combination of circular paths with tracers on the circumference, so we aim to find the kinds of circular paths.
 
@@ -109,5 +109,31 @@ We can find everything at once by calculating
 $$
 \begin{align}
 a_k + ib_k = \frac{1}{L} \int^{L}_{-L}{f(t)e^{i\frac{k \pi t}{L}}}dt
+\end{align}
+$$
+
+## Fourier Transforms
+
+Now the idea of a fourier transform is to find the frequencies that a given signal is made up of. To do this we use the idea of rotation around a circle, clockwise at a certain frequency - this is what $e^{-2 \pi t i}$ represents as t progresses, next we make the shape of the graph proportional to the graph of the function that we wish to find the frequencies of, $f(t)$ so $f(t)e^{-2 \pi tf i}$ wraps the function $f(t)$ around a unit circle, wrapping with the frequency $f$. But why do this? Well we want to find the average point within the circle for each value of frequency, as this shows how much that frequency contributes to $f(t)$. So we can do the following: Take a sample of $N$ points and then calculate the average point in that.
+
+$$
+\begin{align}
+\frac{1}{N} \sum^{N}_{n=1}{f(t_n)e^{-2 \pi t_nf i}} \rightarrow \int^{\infty}_{-\infty}{f(t)e^{-2 \pi tf i}}dt, \ as \ N \rightarrow \infty
+\end{align}
+$$
+
+We define this as the `fourier transform` of $f(t)$ for a given frequency $f$, if we call $\omega = 2 \pi f$, we can view the fourier transform as a transition from the time domain to the frequency domain. Formally:
+
+$$
+\begin{align}
+\hat{f}(\omega) = \int^{\infty}_{-\infty}{f(t)e^{-\omega t i}}dt
+\end{align}
+$$
+
+The inverse fourier transform is given by:
+
+$$
+\begin{align}
+f(t) = \int^{\infty}_{-\infty}{\hat{f}(t)e^{\omega t i}}dt
 \end{align}
 $$
