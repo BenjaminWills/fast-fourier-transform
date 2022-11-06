@@ -134,6 +134,6 @@ The inverse fourier transform is given by:
 
 $$
 \begin{align}
-f(t) = \int^{\infty}_{-\infty}{\hat{f}(t)e^{\omega t i}}dt
+f(t) = \int^{\infty}_{-\infty}{\hat{f}(\omega)e^{\omega t i}}d\omega
 \end{align}
 $$
